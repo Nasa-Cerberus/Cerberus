@@ -1,13 +1,12 @@
-clc 
-clear all
+%code to detect and classify with box
 
-a=imread('8.jpg');
+a=imread('Any Test Image with path.jpg');
 
 figure,imshow(a)
 sample1={'8.jpg','14.jpg'};
-sample2={[103 12 205 387];[246 225 75 131]}
+sample2={[%label cordinates];[%label cordinates]}
 label=table(sample1,sample2)
-imdir=fullfile('C:\Users\ZkaiTr\Desktop\deeptranfer')
+imdir=fullfile(%'C:\Users\.loaction of other samples')
 
 options=trainingOptions('sgdm','MiniBatchSize',32,'InitialLearnRate',1e-6,'MaxEpochs',20)
 train=trainRCNNObjectDetector(label,pp,options,'NegativeOverlapRange',[0 0.3]);
