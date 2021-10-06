@@ -1,8 +1,14 @@
+% You Can find the training_set zip in the link from readme.
+% Here U first train the network using googlenet and change the last 2 layers depending on the number of input datasets
+% At the end you use the code to randomly pick from dataset to verify your trained network.
+
 unzip('Training_set.zip');
 imds = imageDatastore('Training_set', ...
     'IncludeSubfolders',true, ...
     'LabelSource','foldernames'); 
 [imdsTrain,imdsValidation] = splitEachLabel(imds,0.7);
+
+% Using Pretrained Network
 net = googlenet;
 analyzeNetwork(net)
 net.Layers(1)
@@ -167,6 +173,8 @@ options = trainingOptions('sgdm', ...
     'Plots','training-progress');
 
 net = trainNetwork(augimdsTrain,lgraph,options);
+
+% Now the network training is completed now to randomly pick dataset and verify our trained network.
 
 augimdsValidation
 
