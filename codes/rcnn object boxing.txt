@@ -1,6 +1,6 @@
 % Train a rcnn to detect marinedebris 
 load('params_2021_10_02__21_34_34.mat','layers') % load layers of pretrained network
-load plastidebris;
+load PlastiDebris;
 
 %Getting layers
 lgraph = layerGraph(layers) ; 
