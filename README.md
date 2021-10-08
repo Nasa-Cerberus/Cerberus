@@ -1,5 +1,5 @@
 
-## This is team Cerberus participating in :earth_asia: NASA Space Apps Hackathon  2021 :earth_asia:
+## This is team Cerberus participating in :earth_asia:NASA Space Apps Hackathon 2021:earth_asia:
 
 >Countless objects make their way into the ocean every day, "Cerberus in action" is a Deep Learning project that has developed a solution using CNN in MATLAB that helps identify marine debris.
 > By using our model we can detect, classify and segregate marine debris from non-marine debris. Given an image dataset, Cerberus can quickly identify if any plastic marine debris is present. Our solution is cost-effective and easy to implement, and it can easily be used by scientists all around the world to effectuate change.
