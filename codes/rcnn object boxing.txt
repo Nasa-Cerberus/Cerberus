@@ -1,0 +1,26 @@
+% Train a rcnn to detect marinedebris 
+load('params_2021_10_02__21_34_34.mat','layers') % load layers of pretrained network
+load plastidebris;
+
+%Getting layers
+lgraph = layerGraph(layers) ; 
+lgraph.Layers 
+
+%Training options 
+Options = trainingOptions('sgdm','MiniBatchSize'32,'InitialLearnRate',1e-6,'MaxEpochs',10);
+
+%now training rcnn
+rcnn = trainRCNNObjectDetector(plasticdebris,layers,options,'NegativeOverlapRange',[0 0.1]);
+
+[filename,pathname] = uigetfile('*.*',Select Test Image);
+filewithpath=strcat(pathname,filename);
+img = imread(filewithpath);
+
+[bbox,score,label] = detect(rcnn,img,'MiniBatchSize'32);
+nobox=size(score,1);
+
+
+img = insertObjectAnnotation(img, 'rectangle', strcat('plasticdebris');
+
+figure
+imshow(img)
